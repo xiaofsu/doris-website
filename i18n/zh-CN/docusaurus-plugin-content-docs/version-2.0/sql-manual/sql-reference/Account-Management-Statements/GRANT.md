@@ -52,16 +52,16 @@ GRANT role_list TO user_identity
 GRANT privilege_list ON WORKLOAD GROUP workload_group_name TO user_identity [ROLE role_name]
 privilege_list 是需要赋予的权限列表，以逗号分隔。当前 Doris 支持如下权限：
 
-NODE_PRIV：集群节点操作权限，包括节点上下线等操作。同时拥有 Grant_priv 和 Node_priv 的用户，可以将该权限赋予其他用户。
-ADMIN_PRIV：除 NODE_PRIV 以外的所有权限。
-GRANT_PRIV: 操作权限的权限。包括创建删除用户、角色，授权和撤权，设置密码等。
-SELECT_PRIV：对指定的库或表的读取权限
-LOAD_PRIV：对指定的库或表的导入权限
-ALTER_PRIV：对指定的库或表的 schema 变更权限
-CREATE_PRIV：对指定的库或表的创建权限
-DROP_PRIV：对指定的库或表的删除权限
-USAGE_PRIV: 对指定资源的使用权限和 workload group 权限
-SHOW_VIEW_PRIV: 查看`view`创建语句的权限 (从 2.0.3 版本开始，`SELECT_PRIV`和`LOAD_PRIV`权限不能`SHOW CREATE TABLE view_name`，拥有`CREATE_PRIV`，`ALTER_PRIV`，`DROP_PRIV`，`SHOW_VIEW_PRIV`权限项中的任何一个，有权`SHOW CREATE TABLE view_name`)
+NODE_PRIV：集群节点操作权限，包括节点上下线等操作。同时拥有 Grant_priv 和 Node_priv 的用户，可以将该权限赋予其他用户。  
+ADMIN_PRIV：除 NODE_PRIV 以外的所有权限。  
+GRANT_PRIV: 操作权限的权限。包括创建删除用户、角色，授权和撤权，设置密码等。  
+SELECT_PRIV：对指定的库或表的读取权限  
+LOAD_PRIV：对指定的库或表的导入权限  
+ALTER_PRIV：对指定的库或表的 schema 变更权限  
+CREATE_PRIV：对指定的库或表的创建权限  
+DROP_PRIV：对指定的库或表的删除权限  
+USAGE_PRIV: 对指定资源的使用权限和 workload group 权限  
+SHOW_VIEW_PRIV: 查看`view`创建语句的权限 (从 2.0.3 版本开始，`SELECT_PRIV`和`LOAD_PRIV`权限不能`SHOW CREATE TABLE view_name`，拥有`CREATE_PRIV`，`ALTER_PRIV`，`DROP_PRIV`，`SHOW_VIEW_PRIV`权限项中的任何一个，有权`SHOW CREATE TABLE view_name`)  
 
 旧版权限中的 ALL 和 READ_WRITE 会被转换成：SELECT_PRIV,LOAD_PRIV,ALTER_PRIV,CREATE_PRIV,DROP_PRIV；
 READ_ONLY 会被转换为 SELECT_PRIV。
